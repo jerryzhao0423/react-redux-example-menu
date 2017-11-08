@@ -1,0 +1,50 @@
+div.cart {
+  z-index: 1;
+  position: absolute;
+  overflow-y: hidden;
+}
+
+a.back {
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+}
+
+#navbar {
+  background-color: #006699;
+}
+
+#fod {
+  background-color: #006699;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#title {
+  z-index: 2;
+  position: relative;
+  left: 30px;
+  top: 0px;
+}
+
+.shoppingCartTitle{
+  font-size: 20px;
+  color: rgb(10, 120, 185);
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 10px
+}
+.productCardCtn {
+  -webkit-transition: 0.5s border-color ease-out;
+  -o-transition: 0.5s border-color ease-out;
+  transition: 0.5s border-color ease-out;
+  border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+}
+.productCardCtn:hover {
+  border: 1px solid rgb(71, 147, 204);
+}
+
