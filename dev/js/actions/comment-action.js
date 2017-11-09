@@ -1,29 +1,15 @@
-export const ADD_COMMENT='ADD_COMMENT';
-export const DELETE_COMMENT='DELETE_COMMENT';
+let nextCommentId = 0;
+export const addComment = (text,rating) => ({
+    type: 'ADD_COMMENT',
+    id: nextCommentId++,
+    text: text,
+    rating:rating
+});
 
-
-export const addComment = (text) => {
-    return (dispatch, getState) => {
-        const state = getState();
-        localStorage.setItem('comments',
-            JSON.stringify([
-                ...state.comments, {
-                    comment: text
-                }
-            ])
-        );
-        setTimeout(() => {
-            dispatch({
-                type: ADD_COMMENT,
-                text,
-            });
-        }, 2);
-    };
-};
-
-export function deleteComment(index) {
+export function deleteComment(commentIndex) {
+    console.log("deleted!");
     return {
-        type: DELETE_COMMENT,
-        index,
+        type: 'DELETE_COMMENT',
+        commentIndex,
     };
 }

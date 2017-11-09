@@ -21,13 +21,13 @@ a.back {
   font-weight: 400;
 }
 
-#title {
+.title {
   z-index: 2;
   position: relative;
   left: 30px;
   top: 0px;
 }
-
+/*order-page*/
 .shoppingCartTitle{
   font-size: 20px;
   color: rgb(10, 120, 185);
@@ -47,4 +47,22 @@ a.back {
 .productCardCtn:hover {
   border: 1px solid rgb(71, 147, 204);
 }
-
+/*comment-page*/
+.wrapper {
+  width: 800px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+}
+.rating{
+  width: 40px;
+}
+.comment{
+  width:90%;
+  height: 90px;
+  font-size:20px;
+}
+#btn-category{
+  border: 0;
+  font-size: 14px;
+}

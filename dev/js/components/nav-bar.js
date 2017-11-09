@@ -3,7 +3,6 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 require('../../scss/style.scss');
 
 class NavBarInstance extends Component{
-
     render (){
         return (
             <Navbar id="navbar" fixedTop>

@@ -1,51 +1,34 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react'
+import PropTypes from 'prop-types'
+import Comment from './comment-input'
 
 class CommentList extends Component{
-    constructor(props) {
-        super(props);
-        this.handleDel = this.handleDel.bind(this);
-    }
-    handleDel(e) {
-        const delindex = e.target.getAttribute('data-key');
-        this.props.onDel(delindex);
-    }
-
-    render() {
-    let number = 0;
-    this.props.commentList.map((item) => {
-        if (item.comment) {
-            number += 1;
+    handleDeleteComment (index) {
+        if (this.props.onDeleteComment) {
+            this.props.onDeleteComment(index)
         }
-        return true;
-    });
-    console.log(this.props.commentList)
-    return (
-        <div>
-            <ul>{
-                this.props.commentList.map((item, i) => {
-                    if (item.comment) {
-                        return (
-                            <li key={i}>
-                                <p>{item.comment}</p>
-                                <footer data-key={i} onClick={this.handleDel}>Remove</footer>
-                            </li>
-                        );
-                    }
-                    return true;
-                })
-            }
-            </ul>
-        </div>
-    );
-}
-}
-
-export default CommentList
-/*    render(){
+    }
+    render(){
+        const {comments}=this.props;
         return(
-        <div>
-            <li>{this.props.commentList}</li>
-        </div>
+            <div>
+                {comments.map((comment,i) =>
+                    <Comment key={comment.id}
+                             index={i}
+                             onDeleteComment={this.handleDeleteComment.bind(this)}
+                             {...comment}
+                    />)}
+            </div>
         )
     }
-}*/
+}
+
+
+CommentList.propTypes = {
+    comments: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired).isRequired,
+};
+
+export default CommentList

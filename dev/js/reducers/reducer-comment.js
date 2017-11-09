@@ -1,31 +1,24 @@
-import {ADD_COMMENT, DELETE_COMMENT,} from '../actions/comment-action';
+let initialState=[];
 
-let comments;
-(() => {
-    if (localStorage.comments) {
-        comments = JSON.parse(localStorage.comments);
-    } else {
-        comments = [];
-    }
-})();
-const commentList= (state=comments, action)=>{
-    switch (action.type){
-        case ADD_COMMENT:
+
+const addComments = (state = initialState, action) => {
+    switch (action.type) {
+        case 'ADD_COMMENT':
+            console.log(action.id);
             return [
                 ...state,
-                {comment: action.text}];
-        case DELETE_COMMENT:
-            localStorage.setItem('comments', JSON.stringify([
-                ...state.slice(0, action.index),
-                ...state.slice(parseInt(action.index) + 1)
-            ]));
-            return [
-                ...state.slice(0, action.index),
-                ...state.slice(parseInt(action.index) + 1)
+                {
+                    id: action.id,
+                    text: action.text,
+                    rating:action.rating,
+                    createdTime: +new Date()
+                }
             ];
+        case 'DELETE_COMMENT':
+            return [...state.slice(0,action.commentIndex), ...state.slice(action.commentIndex + 1)]
         default:
-            return state;
+            return state
     }
 };
 
-export default commentList;
+export default addComments

@@ -32,7 +32,7 @@ class TitleZone extends Component{
                     </div>
                     <Media>
                         <Media.Left>
-                            <Image width={150} height={150} src={restaurant.logo} alt="Image" rounded id="title"/>
+                            <Image width={150} height={150} src={restaurant.logo} alt="Image" rounded bsStyle="title"/>
                         </Media.Left>
                         <Media.Body id="title">
                             <Media.Heading>{restaurant.name}</Media.Heading>

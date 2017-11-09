@@ -1,8 +1,7 @@
-import DishList from '../components/dish-list';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {selectDish} from "../actions/index";
-require('../../scss/style.scss');
+import DishList from '../components/dish-list'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {addToCart} from "../actions/index"
 
 function mapStateToProps(state) {
     return{
@@ -10,8 +9,7 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({selectDish: selectDish}, dispatch)
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({addToCart},dispatch)
 }
-
-export default connect(mapStateToProps, matchDispatchToProps)(DishList);
+export default connect(mapStateToProps, mapDispatchToProps)(DishList);

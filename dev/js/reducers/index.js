@@ -1,15 +1,13 @@
 import {combineReducers} from 'redux';
-import addedDish from './reducer-selected-dish';
+import {selectedDishes} from './reducer-dishlist';
 import Restaurant from './reducer-list';
-import commentList from './reducer-comment';
-import {routerReducer} from 'react-router-redux'
+import addComments from './reducer-comment';
 
 
 const allReducers = combineReducers({
     restaurant: Restaurant,
-    addedDish,
-    commentList,
-    routerReducer
+    selectedDishes,
+    addComments,
 });
 
 export default allReducers;

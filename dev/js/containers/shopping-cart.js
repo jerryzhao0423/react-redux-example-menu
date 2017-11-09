@@ -1,3 +1,4 @@
+/*
 import ShoppingCart from '../components/shopping-cart';
 import {connect} from 'react-redux';
 
@@ -8,3 +9,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(ShoppingCart);
+ */

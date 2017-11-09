@@ -1,20 +1,23 @@
+
 import React, {Component} from 'react';
 import {Col} from 'react-bootstrap';
-require('../../scss/style.scss');
-
+import '../../scss/style.scss';
 
 class DishList extends Component {
-
     printList() {
         let res=this.props.restaurant[0];
         let rows = [];
         for (let i=0;i<res.categories.length;i++) {
-            rows.push(<Col lg={12}> <h3 id="rice">{res.categories[i].name}</h3></Col>);
+            rows.push(<Col id={res.categories[i].name} lg={12}> <h3>{res.categories[i].name}</h3></Col>);
             for (let j=0;j<res.categories[i].products.length;j++){
                 rows.push(
-                    <Col lg={6}>
-                        <div className="productCardCtn"
-                             onClick={() =>this.props.selectDish(res.categories[i].products[j])}>
+                    <Col lg={6} xs={12}>
+                        <div
+                            className="productCardCtn"
+                            onClick={()=>this.props.addToCart(
+                                res.categories[i].products[j].title,
+                                res.categories[i].products[j].price)}
+                        >
                             <Col lg={9}><div>{res.categories[i].products[j].title}</div></Col>
                             <Col lg={1}><div>${res.categories[i].products[j].price}</div></Col>
                         </div>
@@ -26,7 +29,6 @@ class DishList extends Component {
             )
         });
         }
-
     render() {
         return(<div>{this.printList()}</div>)
 

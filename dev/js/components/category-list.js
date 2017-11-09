@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
-import {Button, ButtonToolbar} from 'react-bootstrap';
+import {Button, ButtonToolbar,Col} from 'react-bootstrap';
 
 class CategoryList extends Component{
 
-    jumpToMenu() {
-        window.location.hash = "rice";
-    }
 
     createCategoryTags() {
         return this.props.restaurant[0].categories.map((restaurant)=>{
             return (
-                <Button key={restaurant.id} onClick={this.jumpToMenu}>
+                <Col lg={12}>
+                <Button key={restaurant.id}
+                        id="btn-category"
+                        onClick={()=>document.getElementById(restaurant.name).scrollIntoView()}
+                >
                     {restaurant.name}
                 </Button>
+                </Col>
             )
         });
     }

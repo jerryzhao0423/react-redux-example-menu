@@ -4,11 +4,11 @@ import SideBarInstance from '../components/side-bar';
 import DishList from '../containers/dish-list';
 import CategoryList from '../containers/category-list';
 import TitleZone from '../containers/title-zone';
-import ShoppingCart from '../containers/shopping-cart';
+import ShoppingCart from '../components/shopping-cart';
 import {Grid, Row, Col} from 'react-bootstrap';
 require('../../scss/style.scss');
 
-const App = () => {
+const AppDish = () => {
     return (
         <div>
             <NavBarInstance/>
@@ -20,12 +20,10 @@ const App = () => {
                 <Row>
                     <Col lg={2} md={3} xs={3}>
                         <SideBarInstance/>
+                        <hr/>
+                        <CategoryList/>
                     </Col>
                     <Col lg={7} md={9} xs={9}>
-                        <h3>Category</h3>
-                        <br/>
-                        <CategoryList/>
-                        <hr/>
                         <h3>Menu</h3>
                         <DishList />
                     </Col>
@@ -39,4 +37,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default AppDish;
