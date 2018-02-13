@@ -8,7 +8,7 @@ class NavBarInstance extends Component{
             <Navbar id="navbar" fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#" id="fod">F.O.D</a>
+                        <a href="#" id="fod">Order your meal</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
